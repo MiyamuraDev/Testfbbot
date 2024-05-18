@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>𝗥𝗮𝗻𝗱𝗼𝗺 𝗩𝗶𝗱𝗲𝗼</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <video controls id="randomVideo"></video>
+
+    <script>
+        const videoUrl = [
+"https://drive.google.com/uc?export=download&id=1ArXkqBy9ReBKj8XpEumYS0e4q1IMlNaB"
+         ];
+
+        const chosenVideoUrl = videoUrl[Math.floor(Math.random() * videoUrl.length)];
+
+        const videoElement = document.getElementById('randomVideo');
+        videoElement.src = chosenVideoUrl;
+
+        // Make the video full-screen on click
+        videoElement.addEventListener('click', () => {
+            if (videoElement.requestFullscreen) {
+                videoElement.requestFullscreen();
+            } else if (videoElement.webkitRequestFullscreen) {
+                videoElement.webkitRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+
+</html>
